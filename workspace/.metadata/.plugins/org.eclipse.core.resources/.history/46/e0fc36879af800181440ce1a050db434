@@ -1,0 +1,22 @@
+#ifndef COMMON_H
+#define COMMON_H
+
+#define BLOCK_SIZE 16
+#define MAX_NUM_CHANNEL 8
+#define NUM_OF_CHANNELS 5
+
+#include "stdfix_emu.h"
+
+
+enum output_mode {
+	mode1, // (2_0_0) Samo LS i RS
+	mode2, // (3_2_0) Svi, nemamo bass (to je treci broj)
+};
+ 
+typedef short DSPshort;					/* DSP integer */
+typedef unsigned short DSPushort;		/* DSP unsigned integer */
+typedef int DSPint;						/* native integer */
+typedef double DSPfract;					/* DSP fixed-point fractional */
+typedef long_accum DSPaccum;			/* DSP fixed-point fractional */
+
+#endif //COMMON_H

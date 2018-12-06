@@ -1,0 +1,72 @@
+#include "expander.h"
+
+
+/*
+*
+* This element can act as a dynamic range expander. A expander changes the
+* amplitude of all samples below a specific threshold with a specific ratio
+* If soft-knee mode is selected the ratio is applied smoothly.
+*
+* parameters: ratio [0.0, 8.0)
+*             threshold [0.0, 1.0)
+*/
+
+static __memY DSPfract c_one = FRACT_NUM(1.0);
+static __memY DSPfract c_zero = FRACT_NUM(0.0);
+static __memY DSPfract threshold;
+static __memY DSPfract curr_data;
+static __memX DSPfract ratio;
+static __memX DSPaccum val;
+static __memX DSPaccum zero;
+
+void audio_expander_init(__memY AudioExpander_t * expander, DSPfract r, DSPfract tr) {
+	expander->ratio = r;
+	expander->threshold = tr;
+}
+
+void gst_audio_dynamic_transform_expander_double(__memY AudioExpander_t * expander,
+		__memX DSPfract * data) {
+
+	DSPint i;
+
+	threshold = expander->threshold;
+	ratio = expander->ratio;
+
+	/* Nothing to do for us here if threshold equals 0.0
+	* or ratio equals 1.0 */
+	if (threshold == c_zero || ratio == c_one)
+		return;
+
+	/* zero crossing of our function */
+	if (ratio != c_zero) {
+		zero = threshold - threshold / ratio;
+	}
+	else {
+		zero = ACCUM_NUM(0.0);
+	}
+
+	if (zero < ACCUM_NUM(0.0))
+		zero = ACCUM_NUM(0.0);
+
+	zero = zero << 3;
+	for (i = 0; i < BLOCK_SIZE; i++) {
+		curr_data = *data;			// goes to hi part of accum
+
+		if ((curr_data - threshold) < c_zero
+				&& (curr_data - zero) > c_zero) {
+			val = ratio * curr_data;
+			val = val +  threshold * (c_one - ratio);
+		}
+		else if (((curr_data - zero) <= c_zero && curr_data > c_zero)
+				|| ((curr_data + zero) <= c_zero && curr_data < c_zero)) {
+			val = ACCUM_NUM(0.0);
+		}
+		else if ((curr_data + threshold) > c_zero
+				&& (curr_data + zero) < c_zero) {
+			val = ratio * curr_data;
+			val = val -  threshold * (c_one - ratio);
+		}
+		val = val << 3;
+		*data++ = (DSPfract)val;
+	}
+}

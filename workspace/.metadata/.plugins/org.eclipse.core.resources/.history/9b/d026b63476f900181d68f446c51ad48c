@@ -1,0 +1,73 @@
+/*
+*
+* This element can act as a dynamic range expander. A expander changes the
+* amplitude of all samples below a specific threshold with a specific ratio
+* If soft-knee mode is selected the ratio is applied smoothly.
+*
+* parameters: ratio [0.0, 8.0)
+*             threshold [0.0, 1.0)
+*/
+/*
+*
+* This element can act as a dynamic range expander. A expander changes the
+* amplitude of all samples below a specific threshold with a specific ratio
+* If soft-knee mode is selected the ratio is applied smoothly.
+*
+* parameters: ratio [0.0, 8.0)
+*             threshold [0.0, 1.0)
+*/
+
+#include "expander.h"
+
+	__memX DSPaccum val;
+	__memX DSPaccum zero;
+	__memY DSPfract const_one = FRACT_NUM(1.0);
+static 	__memY DSPfract const_zero = FRACT_NUM(0.0);
+	__memX DSPfract threshold = expander->threshold;
+	__memX DSPfract ratio;
+
+void audio_expander_init(__memY AudioExpander_t * expander,DSPfract r, DSPfract tr) {
+	expander->ratio = r;
+	expander->threshold = tr;
+}
+
+void gst_audio_dynamic_transform_expander_double(__memY AudioExpander_t * expander,
+	__memX DSPfract * data) {
+
+
+	DSPint i;
+
+
+	/* Nothing to do for us here if threshold equals 0.0
+	* or ratio equals 1.0 */
+	if (threshold == const_zero || ratio == const_one)
+		return;
+
+	/* zero crossing of our function */
+	if (ratio != const_zero) {
+		zero = threshold - threshold / ratio;
+	}
+	else {
+		zero = ACCUM_NUM(0.0);
+	}
+
+	if (zero < ACCUM_NUM(0.0))
+		zero = ACCUM_NUM(0.0);
+
+	zero = zero << 3;
+	for (i = 0; i < BLOCK_SIZE; i++) {
+		val = *data;			// goes to hi part of accum
+
+		if ((val - (DSPaccum)threshold) < ACCUM_NUM(0.0) && (val - zero) > ACCUM_NUM(0.0)) {
+			val = (DSPaccum)(((DSPaccum)ratio) * val + threshold * (const_one - ratio));
+		}
+		else if (((val - zero) <= ACCUM_NUM(0.0) && val > ACCUM_NUM(0.0)) || ((val + zero) <= ACCUM_NUM(0.0) && val < ACCUM_NUM(0.0))) {
+			val = ACCUM_NUM(0.0);
+		}
+		else if ((val + (DSPaccum)threshold) > ACCUM_NUM(0.0) && (val + zero) < ACCUM_NUM(0.0)) {
+			val = (DSPaccum)(((DSPaccum)ratio) * val - threshold * (const_one - ratio));
+		}
+		val = val << 3;
+		*data++ = (DSPfract)val;
+	}
+}

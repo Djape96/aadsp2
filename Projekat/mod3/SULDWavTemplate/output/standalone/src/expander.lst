@@ -1,0 +1,536 @@
+1     	 0000					.public _audio_expander_init
+2     	 0000					.public _gst_audio_dynamic_transform_expander_double
+3     	 0000					.extern __div_sat_laccum
+4     							.ydata_ovly
+4      >> start of macro: .ydata_ovly
+1+    									seg_single , "Y_OVLY", Y
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_Y_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "Y_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_Y_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .ydata_ovly
+5     	 0000				_c_one
+6     	 0000					.dw  (0x7fffffff)
+	 0000	 7FFFFFFF	 
+7     							.ydata_ovly
+7      >> start of macro: .ydata_ovly
+1+    									seg_single , "Y_OVLY", Y
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_Y_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "Y_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_Y_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .ydata_ovly
+8     	 0000				_c_zero
+9     	 0000					.dw  (0x0)
+	 0000	 00000000	 
+10    							.ydata_ovly
+10     >> start of macro: .ydata_ovly
+1+    									seg_single , "Y_OVLY", Y
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_Y_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "Y_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_Y_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .ydata_ovly
+11    	 0000				_curr_data
+12    	 0000					.bss (0x1)
+13    							.xdata_ovly
+13     >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+14    	 0000				_ratio
+15    	 0000					.bss (0x1)
+16    							.ydata_ovly
+16     >> start of macro: .ydata_ovly
+1+    									seg_single , "Y_OVLY", Y
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_Y_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "Y_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_Y_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .ydata_ovly
+17    	 0000				_threshold
+18    	 0000					.bss (0x1)
+19    							.xdata_ovly
+19     >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+20    	 0000				_value
+21    	 0000					.bss (0x3)
+22    							.xdata_ovly
+22     >> start of macro: .xdata_ovly
+1+    									seg_single , "X_OVLY", X
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_X_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "X_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_X_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .xdata_ovly
+23    	 0000				_zero
+24    	 0000					.bss (0x3)
+25    							.code_ovly
+25     >> start of macro: .code_ovly
+1+    									seg_single , "CODE_OVLY", CODE
+1+     >> start of macro: seg_single
+1+    						  .if ( "" != "" ) & defined( ___SegStart_CODE_ )
+2+    						    segment
+3+    						  .else
+4+    						    segment "CODE_OVLY"
+5+    							.if "" != ""
+6+    						___SegStart_CODE_
+7+    							.endif
+8+    						  .endif
+9+    							#RememberSegmentType
+10+    >> end of macro: seg_single
+2+     >> end of macro: .code_ovly
+26    						
+27    						
+28    						
+29    	 0000				_audio_expander_init:			/* LN: 22 | CYCLE: 0 | RULES: () */ 
+30    	 0000	 BB540007		xmem[i7] = i7			# LN: 22 | 
+31    	 0001	 020F7FFF		i7 += 1			# LN: 22 | 
+32    	 0002	 87750003		i7 = i7 + (0x3)			# LN: 22 | 
+33    	 0003	 91750001		i1 = i7 - (0x1)			# LN: 22 | 
+34    	 0004	 B0540001		xmem[i1] = i0			# LN: 22 | 
+35    	 0005	 90750002		i0 = i7 - (0x2)			# LN: 22 | 
+36    	 0006	 98540000		xmem[i0] = a0h			# LN: 22 | 
+37    	 0007	 90750003		i0 = i7 - (0x3)			# LN: 22 | 
+38    	 0008	 99540000		xmem[i0] = a1h			# LN: 22 | 
+39    	 0009				cline_22_0:			/* LN: 23 | CYCLE: 0 | RULES: () */ 
+40    	 0009	 90750001		i0 = i7 - (0x1)			# LN: 23 | 
+41    	 000A	 B0140000		i0 = xmem[i0]			# LN: 23 | 
+42    	 000B	 91750002		i1 = i7 - (0x2)			# LN: 23 | 
+43    	 000C	 02087FFF		i0 += 1			# LN: 23 | 
+44    	 000D	 88140001		a0 = xmem[i1]			# LN: 23 | 
+45    	 000E	 98D40000		ymem[i0] = a0h			# LN: 23 | 
+46    	 000F				cline_23_0:			/* LN: 24 | CYCLE: 0 | RULES: () */ 
+47    	 000F	 90750001		i0 = i7 - (0x1)			# LN: 24 | 
+48    	 0010	 88140000		a0 = xmem[i0]			# LN: 24 | 
+49    	 0011	 98090030		AnyReg(i0, a0h)			# LN: 24 | 
+50    	 0012	 91750003		i1 = i7 - (0x3)			# LN: 24 | 
+51    	 0013	 88140001		a0 = xmem[i1]			# LN: 24 | 
+52    	 0014	 98D40000		ymem[i0] = a0h			# LN: 24 | 
+53    	 0015				cline_24_0:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+54    	 0015	 80080016		jmp (__epilogue_104)			# LN: 25 | 
+55    	 0016				__epilogue_104:			/* LN: 25 | CYCLE: 0 | RULES: () */ 
+56    	 0016	 97750003		i7 = i7 - (0x3)			# LN: 25 | 
+57    	 0017	 02177FFF		i7 -= 1			# LN: 25 | 
+58    	 0018	 81880000		ret			# LN: 25 | 
+59    						
+60    						
+61    						
+62    	 0019				_gst_audio_dynamic_transform_expander_double:			/* LN: 27 | CYCLE: 0 | RULES: () */ 
+63    	 0019	 BB540007		xmem[i7] = i7			# LN: 27 | 
+64    	 001A	 020F7FFF		i7 += 1			# LN: 27 | 
+65    	 001B	 87750003		i7 = i7 + (0x3)			# LN: 27 | 
+66    	 001C	 94750001		i4 = i7 - (0x1)			# LN: 27 | 
+67    	 001D	 B0540004		xmem[i4] = i0			# LN: 27 | 
+68    	 001E	 90750002		i0 = i7 - (0x2)			# LN: 27 | 
+69    	 001F	 B1540000		xmem[i0] = i1			# LN: 27 | 
+70    	 0020				cline_27_0:			/* LN: 31 | CYCLE: 0 | RULES: () */ 
+71    	 0020	 90750001		i0 = i7 - (0x1)			# LN: 31 | 
+72    	 0021	 88140000		a0 = xmem[i0]			# LN: 31 | 
+73    	 0022	 98090030		AnyReg(i0, a0h)			# LN: 31 | 
+74    	 0023	 00007FFF		nop #empty cycle
+75    	 0024	 88940000		a0 = ymem[i0]			# LN: 31 | 
+76    	 0025	 98C40000		ymem[_threshold + 0] = a0h			# LN: 31 | 
+77    	 0026				cline_31_0:			/* LN: 32 | CYCLE: 0 | RULES: () */ 
+78    	 0026	 90750001		i0 = i7 - (0x1)			# LN: 32 | 
+79    	 0027	 B0140000		i0 = xmem[i0]			# LN: 32 | 
+80    	 0028	 00007FFF		nop #empty cycle
+81    	 0029	 02087FFF		i0 += 1			# LN: 32 | 
+82    	 002A	 88940000		a0 = ymem[i0]			# LN: 32 | 
+83    	 002B	 98440000		xmem[_ratio + 0] = a0h			# LN: 32 | 
+84    	 002C				cline_32_0:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
+85    	 002C	 88840000		a0 = ymem[_threshold + 0]			# LN: 36 | 
+86    	 002D	 89840000		a1 = ymem[_c_zero + 0]			# LN: 36 | 
+87    	 002E	 00004F08		a0 - a1			# LN: 36 | 
+88    	 002F	 84080034		if (a == 0) jmp (cline_36_0)			# LN: 36 | 
+89    	 0030	 88040000		a0 = xmem[_ratio + 0]			# LN: 36 | 
+90    	 0031	 89840000		a1 = ymem[_c_one + 0]			# LN: 36 | 
+91    	 0032	 00004F08		a0 - a1			# LN: 36 | 
+92    	 0033	 84480035		if (a != 0) jmp (else_0)			# LN: 36 | 
+93    	 0034				cline_36_0:			/* LN: 37 | CYCLE: 0 | RULES: () */ 
+94    	 0034	 800800EF		jmp (__epilogue_106)			# LN: 37 | 
+95    	 0035				cline_37_0:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
+96    	 0035				endif_0:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
+97    	 0035				else_0:			/* LN: 36 | CYCLE: 0 | RULES: () */ 
+98    	 0035	 88040000		a0 = xmem[_ratio + 0]			# LN: 40 | 
+99    	 0036	 89840000		a1 = ymem[_c_zero + 0]			# LN: 40 | 
+100   	 0037	 00004F08		a0 - a1			# LN: 40 | 
+101   	 0038	 84080043		if (a == 0) jmp (else_1)			# LN: 40 | 
+102   	 0039				cline_40_0:			/* LN: 41 | CYCLE: 0 | RULES: () */ 
+103   	 0039	 88840000		a0 = ymem[_threshold + 0]			# LN: 41 | 
+104   	 003A	 89040000		a1 = xmem[_ratio + 0]			# LN: 41 | 
+105   	 003B	 80880000		call (__div_sat_laccum)			# LN: 41 | 
+106   	 003C	 48487FFF		a0 = a0			# LN: 41 | 
+107   	 003D	 89840000		a1 = ymem[_threshold + 0]			# LN: 41 | 
+108   	 003E	 000044C0		a0 = a1 - a0			# LN: 41 | 
+109   	 003F	 A0440000		xmem[_zero + 0] = a0g			# LN: 41 | 
+110   	 0040	 98440001		xmem[_zero + 1] = a0h			# LN: 41 | 
+111   	 0041	 90440002		xmem[_zero + 2] = a0l			# LN: 41 | 
+112   	 0042	 80080047		jmp (endif_1)			# LN: 41 | 
+113   	 0043				cline_41_0:			/* LN: 44 | CYCLE: 0 | RULES: () */ 
+114   	 0043				else_1:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
+115   	 0043	 00004DC0		a0 = 0			# LN: 44 | 
+116   	 0044	 A0440000		xmem[_zero + 0] = a0g			# LN: 44 | 
+117   	 0045	 98440001		xmem[_zero + 1] = a0h			# LN: 44 | 
+118   	 0046	 90440002		xmem[_zero + 2] = a0l			# LN: 44 | 
+119   	 0047				cline_44_0:			/* LN: 47 | CYCLE: 0 | RULES: () */ 
+120   	 0047				endif_1:			/* LN: 40 | CYCLE: 0 | RULES: () */ 
+121   	 0047	 A0040000		a0g = xmem[_zero + 0]			# LN: 47 | 
+122   	 0048	 98040001		a0h = xmem[_zero + 1]			# LN: 47 | 
+123   	 0049	 90040002		a0l = xmem[_zero + 2]			# LN: 47 | 
+124   	 004A	 00004E80		a0 & a0			# LN: 47 | 
+125   	 004B	 84C80051		if (a >= 0) jmp (else_2)			# LN: 47 | 
+126   	 004C				cline_47_0:			/* LN: 49 | CYCLE: 0 | RULES: () */ 
+127   	 004C	 00004DC0		a0 = 0			# LN: 49 | 
+128   	 004D	 A0440000		xmem[_zero + 0] = a0g			# LN: 49 | 
+129   	 004E	 98440001		xmem[_zero + 1] = a0h			# LN: 49 | 
+130   	 004F	 90440002		xmem[_zero + 2] = a0l			# LN: 49 | 
+131   	 0050	 80080051		jmp (endif_2)			# LN: 49 | 
+132   	 0051				cline_49_0:			/* LN: 51 | CYCLE: 0 | RULES: () */ 
+133   	 0051				endif_2:			/* LN: 47 | CYCLE: 0 | RULES: () */ 
+134   	 0051				else_2:			/* LN: 47 | CYCLE: 0 | RULES: () */ 
+135   	 0051	 A0040000		a0g = xmem[_zero + 0]			# LN: 51 | 
+136   	 0052	 98040001		a0h = xmem[_zero + 1]			# LN: 51 | 
+137   	 0053	 90040002		a0l = xmem[_zero + 2]			# LN: 51 | 
+138   	 0054	 80300055		do (0x3), label_end_5_0			# LN: 51 | 
+139   	 0055				label_begin_5_0:			/* LN: 51 | CYCLE: 0 | RULES: (CBitwiseFixPointShiftConstNonstandardValue) */ 
+140   	 0055				label_end_5_0:			# LN: 51 | CYCLE: 0 | RULES: (CBitwiseFixPointShiftConstNonstandardValue)
+141   	 0055	 00004E00		a0 = a0 << 1			# LN: 51 | 
+142   	 0056	 A0440000		xmem[_zero + 0] = a0g			# LN: 51 | 
+143   	 0057	 98440001		xmem[_zero + 1] = a0h			# LN: 51 | 
+144   	 0058	 90440002		xmem[_zero + 2] = a0l			# LN: 51 | 
+145   	 0059				cline_51_0:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+146   	 0059	 90750003		i0 = i7 - (0x3)			# LN: 52 | 
+147   	 005A	 00004DC0		a0 = 0			# LN: 52 | 
+148   	 005B	 98540000		xmem[i0] = a0h			# LN: 52 | 
+149   	 005C	 810000ED		do (0x10), label_end_92			# LN: 52 | 
+150   	 005D				cline_52_0:			/* LN: 53 | CYCLE: 0 | RULES: () */ 
+151   	 005D				label_begin_92:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+152   	 005D	 90750002		i0 = i7 - (0x2)			# LN: 53 | 
+153   	 005E	 B0140000		i0 = xmem[i0]			# LN: 53 | 
+154   	 005F	 00007FFF		nop #empty cycle
+155   	 0060	 88140000		a0 = xmem[i0]			# LN: 53 | 
+156   	 0061	 98C40000		ymem[_curr_data + 0] = a0h			# LN: 53 | 
+157   	 0062				cline_53_0:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
+158   	 0062	 88840000		a0 = ymem[_curr_data + 0]			# LN: 56 | 
+159   	 0063	 89840000		a1 = ymem[_threshold + 0]			# LN: 56 | 
+160   	 0064	 00004448		a0 = a0 - a1			# LN: 56 | 
+161   	 0065	 89840000		a1 = ymem[_c_zero + 0]			# LN: 56 | 
+162   	 0066	 00004F08		a0 - a1			# LN: 56 | 
+163   	 0067	 84C80086		if (a >= 0) jmp (else_3)			# LN: 56 | 
+164   	 0068	 88840000		a0 = ymem[_curr_data + 0]			# LN: 56 | 
+165   	 0069	 A1040000		a1g = xmem[_zero + 0]			# LN: 56 | 
+166   	 006A	 99040001		a1h = xmem[_zero + 1]			# LN: 56 | 
+167   	 006B	 91040002		a1l = xmem[_zero + 2]			# LN: 56 | 
+168   	 006C	 00004C24		b0 =+ a0			# LN: 56 | 
+169   	 006D	 0000446C		b0 = b0 - a1			# LN: 56 | 
+170   	 006E	 00004E44		b0 = b0 >> 1			# LN: 56 | 
+171   	 006F	 88840000		a0 = ymem[_c_zero + 0]			# LN: 56 | 
+172   	 0070	 00004E40		a0 = a0 >> 1			# LN: 56 | 
+173   	 0071	 00004F24		b0 - a0			# LN: 56 | 
+174   	 0072	 87080086		if (b <= 0) jmp (else_3)			# LN: 56 | 
+175   	 0073				cline_56_0:			/* LN: 57 | CYCLE: 0 | RULES: () */ 
+176   	 0073	 80040000		x0 = xmem[_ratio + 0]			# LN: 57 | 
+177   	 0074	 81840000		x1 = ymem[_curr_data + 0]			# LN: 57 | 
+178   	 0075	 00002080		a0 = x0 * x1			# LN: 57 | 
+179   	 0076	 A0440000		xmem[_value + 0] = a0g			# LN: 57 | 
+180   	 0077	 98440001		xmem[_value + 1] = a0h			# LN: 57 | 
+181   	 0078	 90440002		xmem[_value + 2] = a0l			# LN: 57 | 
+182   	 0079				cline_57_0:			/* LN: 58 | CYCLE: 0 | RULES: () */ 
+183   	 0079	 88840000		a0 = ymem[_c_one + 0]			# LN: 58 | 
+184   	 007A	 89040000		a1 = xmem[_ratio + 0]			# LN: 58 | 
+185   	 007B	 00004448		a0 = a0 - a1			# LN: 58 | 
+186   	 007C	 00587FFF		x0 = a0h			# LN: 58 | 
+187   	 007D	 81840000		x1 = ymem[_threshold + 0]			# LN: 58 | 
+188   	 007E	 A0040000		a0g = xmem[_value + 0]			# LN: 58 | 
+189   	 007F	 98040001		a0h = xmem[_value + 1]			# LN: 58 | 
+190   	 0080	 90040002		a0l = xmem[_value + 2]			# LN: 58 | 
+191   	 0081	 00002028		a0 += x1 * x0			# LN: 58 | 
+192   	 0082	 A0440000		xmem[_value + 0] = a0g			# LN: 58 | 
+193   	 0083	 98440001		xmem[_value + 1] = a0h			# LN: 58 | 
+194   	 0084	 90440002		xmem[_value + 2] = a0l			# LN: 58 | 
+195   	 0085	 800800D5		jmp (endif_3)			# LN: 58 | 
+196   	 0086				cline_58_0:			/* LN: 61 | CYCLE: 0 | RULES: () */ 
+197   	 0086				else_3:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
+198   	 0086	 88840000		a0 = ymem[_curr_data + 0]			# LN: 61 | 
+199   	 0087	 A1040000		a1g = xmem[_zero + 0]			# LN: 61 | 
+200   	 0088	 99040001		a1h = xmem[_zero + 1]			# LN: 61 | 
+201   	 0089	 91040002		a1l = xmem[_zero + 2]			# LN: 61 | 
+202   	 008A	 00004C24		b0 =+ a0			# LN: 61 | 
+203   	 008B	 0000446C		b0 = b0 - a1			# LN: 61 | 
+204   	 008C	 00004E44		b0 = b0 >> 1			# LN: 61 | 
+205   	 008D	 88840000		a0 = ymem[_c_zero + 0]			# LN: 61 | 
+206   	 008E	 00004E40		a0 = a0 >> 1			# LN: 61 | 
+207   	 008F	 00004F24		b0 - a0			# LN: 61 | 
+208   	 0090	 87480095		if (b > 0) jmp (land_1_0)			# LN: 61 | 
+209   	 0091	 88840000		a0 = ymem[_curr_data + 0]			# LN: 61 | 
+210   	 0092	 89840000		a1 = ymem[_c_zero + 0]			# LN: 61 | 
+211   	 0093	 00004F08		a0 - a1			# LN: 61 | 
+212   	 0094	 854800AC		if (a > 0) jmp (cline_61_0)			# LN: 61 | 
+213   	 0095				land_1_0:			/* LN: 61 | CYCLE: 0 | RULES: () */ 
+214   	 0095	 88840000		a0 = ymem[_curr_data + 0]			# LN: 61 | 
+215   	 0096	 A1040000		a1g = xmem[_zero + 0]			# LN: 61 | 
+216   	 0097	 99040001		a1h = xmem[_zero + 1]			# LN: 61 | 
+217   	 0098	 91040002		a1l = xmem[_zero + 2]			# LN: 61 | 
+218   	 0099	 00004C24		b0 =+ a0			# LN: 61 | 
+219   	 009A	 0000442C		b0 = b0 + a1			# LN: 61 | 
+220   	 009B	 00004E44		b0 = b0 >> 1			# LN: 61 | 
+221   	 009C	 88840000		a0 = ymem[_c_zero + 0]			# LN: 61 | 
+222   	 009D	 00004E40		a0 = a0 >> 1			# LN: 61 | 
+223   	 009E	 00004F24		b0 - a0			# LN: 61 | 
+224   	 009F	 884A0001		uhalfword(a0) = (0x1)			# LN: 61 | 
+225   	 00A0	 870800A2		if (b <= 0) jmp (comparation_0)			# LN: 61 | 
+226   	 00A1	 884A0000		uhalfword(a0) = (0x0)			# LN: 61 | 
+227   	 00A2				comparation_0:			/* LN: 61 | CYCLE: 0 | RULES: (CComparisonSignedAccumFixedPointRule) */ 
+228   	 00A2	 00004E80		a0 & a0			# LN: 61 | 
+229   	 00A3	 840800AA		if (a == 0) jmp (land_2)			# LN: 61 | 
+230   	 00A4	 88840000		a0 = ymem[_curr_data + 0]			# LN: 61 | 
+231   	 00A5	 89840000		a1 = ymem[_c_zero + 0]			# LN: 61 | 
+232   	 00A6	 00004F08		a0 - a1			# LN: 61 | 
+233   	 00A7	 884A0001		uhalfword(a0) = (0x1)			# LN: 61 | 
+234   	 00A8	 848800AA		if (a < 0) jmp (comparation_1)			# LN: 61 | 
+235   	 00A9	 884A0000		uhalfword(a0) = (0x0)			# LN: 61 | 
+236   	 00AA				land_2:			/* LN: 61 | CYCLE: 0 | RULES: () */ 
+237   	 00AA				comparation_1:			/* LN: 61 | CYCLE: 0 | RULES: (CComparisonFixedPointRule) */ 
+238   	 00AA	 00004E80		a0 & a0			# LN: 61 | 
+239   	 00AB	 840800B1		if (a == 0) jmp (else_4)			# LN: 61 | 
+240   	 00AC				cline_61_0:			/* LN: 62 | CYCLE: 0 | RULES: () */ 
+241   	 00AC	 00004DC0		a0 = 0			# LN: 62 | 
+242   	 00AD	 A0440000		xmem[_value + 0] = a0g			# LN: 62 | 
+243   	 00AE	 98440001		xmem[_value + 1] = a0h			# LN: 62 | 
+244   	 00AF	 90440002		xmem[_value + 2] = a0l			# LN: 62 | 
+245   	 00B0	 800800D5		jmp (endif_4)			# LN: 62 | 
+246   	 00B1				cline_62_0:			/* LN: 65 | CYCLE: 0 | RULES: () */ 
+247   	 00B1				else_4:			/* LN: 61 | CYCLE: 0 | RULES: () */ 
+248   	 00B1	 88840000		a0 = ymem[_curr_data + 0]			# LN: 65 | 
+249   	 00B2	 89840000		a1 = ymem[_threshold + 0]			# LN: 65 | 
+250   	 00B3	 00004408		a0 = a0 + a1			# LN: 65 | 
+251   	 00B4	 89840000		a1 = ymem[_c_zero + 0]			# LN: 65 | 
+252   	 00B5	 00004F08		a0 - a1			# LN: 65 | 
+253   	 00B6	 850800D5		if (a <= 0) jmp (else_5)			# LN: 65 | 
+254   	 00B7	 88840000		a0 = ymem[_curr_data + 0]			# LN: 65 | 
+255   	 00B8	 A1040000		a1g = xmem[_zero + 0]			# LN: 65 | 
+256   	 00B9	 99040001		a1h = xmem[_zero + 1]			# LN: 65 | 
+257   	 00BA	 91040002		a1l = xmem[_zero + 2]			# LN: 65 | 
+258   	 00BB	 00004C24		b0 =+ a0			# LN: 65 | 
+259   	 00BC	 0000442C		b0 = b0 + a1			# LN: 65 | 
+260   	 00BD	 00004E44		b0 = b0 >> 1			# LN: 65 | 
+261   	 00BE	 88840000		a0 = ymem[_c_zero + 0]			# LN: 65 | 
+262   	 00BF	 00004E40		a0 = a0 >> 1			# LN: 65 | 
+263   	 00C0	 00004F24		b0 - a0			# LN: 65 | 
+264   	 00C1	 86C800D5		if (b >= 0) jmp (else_5)			# LN: 65 | 
+265   	 00C2				cline_65_0:			/* LN: 66 | CYCLE: 0 | RULES: () */ 
+266   	 00C2	 80040000		x0 = xmem[_ratio + 0]			# LN: 66 | 
+267   	 00C3	 81840000		x1 = ymem[_curr_data + 0]			# LN: 66 | 
+268   	 00C4	 00002080		a0 = x0 * x1			# LN: 66 | 
+269   	 00C5	 A0440000		xmem[_value + 0] = a0g			# LN: 66 | 
+270   	 00C6	 98440001		xmem[_value + 1] = a0h			# LN: 66 | 
+271   	 00C7	 90440002		xmem[_value + 2] = a0l			# LN: 66 | 
+272   	 00C8				cline_66_0:			/* LN: 67 | CYCLE: 0 | RULES: () */ 
+273   	 00C8	 88840000		a0 = ymem[_c_one + 0]			# LN: 67 | 
+274   	 00C9	 89040000		a1 = xmem[_ratio + 0]			# LN: 67 | 
+275   	 00CA	 00004448		a0 = a0 - a1			# LN: 67 | 
+276   	 00CB	 00587FFF		x0 = a0h			# LN: 67 | 
+277   	 00CC	 81840000		x1 = ymem[_threshold + 0]			# LN: 67 | 
+278   	 00CD	 A0040000		a0g = xmem[_value + 0]			# LN: 67 | 
+279   	 00CE	 98040001		a0h = xmem[_value + 1]			# LN: 67 | 
+280   	 00CF	 90040002		a0l = xmem[_value + 2]			# LN: 67 | 
+281   	 00D0	 00002038		a0 -= x1 * x0			# LN: 67 | 
+282   	 00D1	 A0440000		xmem[_value + 0] = a0g			# LN: 67 | 
+283   	 00D2	 98440001		xmem[_value + 1] = a0h			# LN: 67 | 
+284   	 00D3	 90440002		xmem[_value + 2] = a0l			# LN: 67 | 
+285   	 00D4	 800800D5		jmp (endif_5)			# LN: 67 | 
+286   	 00D5				cline_67_0:			/* LN: 69 | CYCLE: 0 | RULES: () */ 
+287   	 00D5				endif_3:			/* LN: 56 | CYCLE: 0 | RULES: () */ 
+288   	 00D5				endif_4:			/* LN: 61 | CYCLE: 0 | RULES: () */ 
+289   	 00D5				endif_5:			/* LN: 65 | CYCLE: 0 | RULES: () */ 
+290   	 00D5				else_5:			/* LN: 65 | CYCLE: 0 | RULES: () */ 
+291   	 00D5	 A0040000		a0g = xmem[_value + 0]			# LN: 69 | 
+292   	 00D6	 98040001		a0h = xmem[_value + 1]			# LN: 69 | 
+293   	 00D7	 90040002		a0l = xmem[_value + 2]			# LN: 69 | 
+294   	 00D8	 803000D9		do (0x3), label_end_5_1			# LN: 69 | 
+295   	 00D9				label_begin_5_1:			/* LN: 69 | CYCLE: 0 | RULES: (CBitwiseFixPointShiftConstNonstandardValue) */ 
+296   	 00D9				label_end_5_1:			# LN: 69 | CYCLE: 0 | RULES: (CBitwiseFixPointShiftConstNonstandardValue)
+297   	 00D9	 00004E00		a0 = a0 << 1			# LN: 69 | 
+298   	 00DA	 A0440000		xmem[_value + 0] = a0g			# LN: 69 | 
+299   	 00DB	 98440001		xmem[_value + 1] = a0h			# LN: 69 | 
+300   	 00DC	 90440002		xmem[_value + 2] = a0l			# LN: 69 | 
+301   	 00DD				cline_69_0:			/* LN: 70 | CYCLE: 0 | RULES: () */ 
+302   	 00DD	 90750002		i0 = i7 - (0x2)			# LN: 70 | 
+303   	 00DE	 B0140000		i0 = xmem[i0]			# LN: 70 | 
+304   	 00DF	 A0040000		a0g = xmem[_value + 0]			# LN: 70 | 
+305   	 00E0	 98040001		a0h = xmem[_value + 1]			# LN: 70 | 
+306   	 00E1	 90040002		a0l = xmem[_value + 2]			# LN: 70 | 
+307   	 00E2	 88540000		xmem[i0] = a0			# LN: 70 | 
+308   	 00E3	 90750002		i0 = i7 - (0x2)			# LN: 70 | 
+309   	 00E4	 B0140000		i0 = xmem[i0]			# LN: 70 | 
+310   	 00E5	 91750002		i1 = i7 - (0x2)			# LN: 70 | 
+311   	 00E6	 02087FFF		i0 += 1			# LN: 70 | 
+312   	 00E7	 B0540001		xmem[i1] = i0			# LN: 70 | 
+313   	 00E8				cline_70_0:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+314   	 00E8				init_latch_label_0:			/* LN: 71 | CYCLE: 0 | RULES: () */ 
+315   	 00E8	 90750003		i0 = i7 - (0x3)			# LN: 52 | 
+316   	 00E9	 88140000		a0 = xmem[i0]			# LN: 52 | 
+317   	 00EA	 894A0001		uhalfword(a1) = (0x1)			# LN: 52 | 
+318   	 00EB	 00004408		a0 = a0 + a1			# LN: 52 | 
+319   	 00EC	 90750003		i0 = i7 - (0x3)			# LN: 52 | 
+320   	 00ED				label_end_92:			# LN: 52 | CYCLE: 5 | RULES: ()
+321   	 00ED	 98540000		xmem[i0] = a0h			# LN: 52 | 
+322   	 00EE				cline_52_1:			/* LN: 72 | CYCLE: 0 | RULES: () */ 
+323   	 00EE				for_end_0:			/* LN: 52 | CYCLE: 0 | RULES: () */ 
+324   	 00EE	 800800EF		jmp (__epilogue_106)			# LN: 72 | 
+325   	 00EF				__epilogue_106:			/* LN: 72 | CYCLE: 0 | RULES: () */ 
+326   	 00EF	 97750003		i7 = i7 - (0x3)			# LN: 72 | 
+327   	 00F0	 02177FFF		i7 -= 1			# LN: 72 | 
+328   	 00F1	 81880000		ret			# LN: 72 | 
+329   						(null)
+				 SYMBOL TABLE 
+
+    Name                                                                                    Type                  Value 
+
+_COMMON_INC_PATH_                                                               					 Define                 "C:/CirrusDSP/crystal32/common/inc/"
+_DSP_                                                                           					 Define                 "a"
+_LOCAL_INC_PATH_                                                                					 Define                 "inc/"
+_LOCAL_SRC_PATH_                                                                					 Define                 "src/"
+_MUI_VERSION_                                                                   					 Define                 "020000"
+_OVLY_                                                                          					 Define                 "standalone"
+_OVLY_REVISION_                                                                 					 Define                 "020000"
+_ROUTER_INC_PATH_                                                               					 Define                 "rom_inc/"
+_SLOT_                                                                          					 Define                 "0"
+_TARGET_FAMILY_                                                                 					 Define                 "crystal32"
+_TOOLS_VERSION_                                                                 					 Define                 "0x0701"
+_VERSION_                                                                       					 Define                 "00"
+__CASM_VER__                                                                    			  Unused Variable		        0 (701H)
+__div_sat_laccum                                                                					 External   
+__epilogue_104                                                                  			         Relocatable         expander_GEN_0007:0016H
+__epilogue_106                                                                  			         Relocatable         expander_GEN_0007:00EFH
+_audio_expander_init                                                            			  Public Relocatable       expander_GEN_0007:0000H
+_c_one                                                                          			         Relocatable         expander_GEN_0000:0000H
+_c_zero                                                                         			         Relocatable         expander_GEN_0001:0000H
+_curr_data                                                                      			         Relocatable         expander_GEN_0002:0000H
+_gst_audio_dynamic_transform_expander_double                                    			  Public Relocatable       expander_GEN_0007:0019H
+_ratio                                                                          			         Relocatable         expander_GEN_0003:0000H
+_threshold                                                                      			         Relocatable         expander_GEN_0004:0000H
+_value                                                                          			         Relocatable         expander_GEN_0005:0000H
+_zero                                                                           			         Relocatable         expander_GEN_0006:0000H
+cline_22_0                                                                      			  Unused Relocatable        expander_GEN_0007:0009H
+cline_23_0                                                                      			  Unused Relocatable        expander_GEN_0007:000FH
+cline_24_0                                                                      			  Unused Relocatable        expander_GEN_0007:0015H
+cline_27_0                                                                      			  Unused Relocatable        expander_GEN_0007:0020H
+cline_31_0                                                                      			  Unused Relocatable        expander_GEN_0007:0026H
+cline_32_0                                                                      			  Unused Relocatable        expander_GEN_0007:002CH
+cline_36_0                                                                      			         Relocatable         expander_GEN_0007:0034H
+cline_37_0                                                                      			  Unused Relocatable        expander_GEN_0007:0035H
+cline_40_0                                                                      			  Unused Relocatable        expander_GEN_0007:0039H
+cline_41_0                                                                      			  Unused Relocatable        expander_GEN_0007:0043H
+cline_44_0                                                                      			  Unused Relocatable        expander_GEN_0007:0047H
+cline_47_0                                                                      			  Unused Relocatable        expander_GEN_0007:004CH
+cline_49_0                                                                      			  Unused Relocatable        expander_GEN_0007:0051H
+cline_51_0                                                                      			  Unused Relocatable        expander_GEN_0007:0059H
+cline_52_0                                                                      			  Unused Relocatable        expander_GEN_0007:005DH
+cline_52_1                                                                      			  Unused Relocatable        expander_GEN_0007:00EEH
+cline_53_0                                                                      			  Unused Relocatable        expander_GEN_0007:0062H
+cline_56_0                                                                      			  Unused Relocatable        expander_GEN_0007:0073H
+cline_57_0                                                                      			  Unused Relocatable        expander_GEN_0007:0079H
+cline_58_0                                                                      			  Unused Relocatable        expander_GEN_0007:0086H
+cline_61_0                                                                      			         Relocatable         expander_GEN_0007:00ACH
+cline_62_0                                                                      			  Unused Relocatable        expander_GEN_0007:00B1H
+cline_65_0                                                                      			  Unused Relocatable        expander_GEN_0007:00C2H
+cline_66_0                                                                      			  Unused Relocatable        expander_GEN_0007:00C8H
+cline_67_0                                                                      			  Unused Relocatable        expander_GEN_0007:00D5H
+cline_69_0                                                                      			  Unused Relocatable        expander_GEN_0007:00DDH
+cline_70_0                                                                      			  Unused Relocatable        expander_GEN_0007:00E8H
+comparation_0                                                                   			         Relocatable         expander_GEN_0007:00A2H
+comparation_1                                                                   			         Relocatable         expander_GEN_0007:00AAH
+else_0                                                                          			         Relocatable         expander_GEN_0007:0035H
+else_1                                                                          			         Relocatable         expander_GEN_0007:0043H
+else_2                                                                          			         Relocatable         expander_GEN_0007:0051H
+else_3                                                                          			         Relocatable         expander_GEN_0007:0086H
+else_4                                                                          			         Relocatable         expander_GEN_0007:00B1H
+else_5                                                                          			         Relocatable         expander_GEN_0007:00D5H
+endif_0                                                                         			  Unused Relocatable        expander_GEN_0007:0035H
+endif_1                                                                         			         Relocatable         expander_GEN_0007:0047H
+endif_2                                                                         			         Relocatable         expander_GEN_0007:0051H
+endif_3                                                                         			         Relocatable         expander_GEN_0007:00D5H
+endif_4                                                                         			         Relocatable         expander_GEN_0007:00D5H
+endif_5                                                                         			         Relocatable         expander_GEN_0007:00D5H
+for_end_0                                                                       			  Unused Relocatable        expander_GEN_0007:00EEH
+init_latch_label_0                                                              			  Unused Relocatable        expander_GEN_0007:00E8H
+label_begin_5_0                                                                 			  Unused Relocatable        expander_GEN_0007:0055H
+label_begin_5_1                                                                 			  Unused Relocatable        expander_GEN_0007:00D9H
+label_begin_92                                                                  			  Unused Relocatable        expander_GEN_0007:005DH
+label_end_5_0                                                                   			         Relocatable         expander_GEN_0007:0055H
+label_end_5_1                                                                   			         Relocatable         expander_GEN_0007:00D9H
+label_end_92                                                                    			         Relocatable         expander_GEN_0007:00EDH
+land_1_0                                                                        			         Relocatable         expander_GEN_0007:0095H
+land_2                                                                          			         Relocatable         expander_GEN_0007:00AAH
+
+	       SEGMENTS:
+
+Size			  Name										 Class
+0000H	 __INIT                                  			 CODE                                    
+0001H	 expander_GEN_0000                       			 Y_OVLY                                  
+0001H	 expander_GEN_0001                       			 Y_OVLY                                  
+0001H	 expander_GEN_0002                       			 Y_OVLY                                  
+0001H	 expander_GEN_0003                       			 X_OVLY                                  
+0001H	 expander_GEN_0004                       			 Y_OVLY                                  
+0003H	 expander_GEN_0005                       			 X_OVLY                                  
+0003H	 expander_GEN_0006                       			 X_OVLY                                  
+00F2H	 expander_GEN_0007                       			 CODE_OVLY                               
